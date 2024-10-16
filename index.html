@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>miks77</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+</head>
+<body>
+    <div id="input-container">
+        <input class='js-input' type="text" placeholder="Input 1">
+    </div>
+    <br>
+    <button class="js-btn-result">Добавить</button>
+    <button class="js-btn-save">Сохранить данные</button>
+    <script>
+        let inputCount = 1;
+        let inputData = [];
+
+        $('.js-btn-result').on('click', function(){
+            inputCount++;
+            $('#input-container').append(`<br><input class='js-input' type='text' placeholder='Input ${inputCount}'>`);
+        });
+        $('.js-btn-save').on('click', function(){
+            inputData = [];
+
+            $('.js-input').each(function(){
+                inputData.push($(this).val());
+            });
+
+            console.log('Данные:', inputData)
+        });
+    </script>
+
+</body>
+</html>
